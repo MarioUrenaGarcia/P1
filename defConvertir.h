@@ -11,3 +11,13 @@
 #define YELLOW "\x1b[33m"
 #define RESET "\x1b[0m"
 #define CYAN "\x1b[36m"
+
+//Estructuras
+struct conversiones
+{
+  char binario[64];
+  char octal[64];
+  char hexadecimal[64];
+};
+
+typedef struct conversiones tipoConversion;

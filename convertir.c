@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
   //-------------------------------------------------------------------------------------
   // Variables
-  int *datosIngresados;
+  int *entradas;
   int dimensionArreglo;
   
   // Procesos
@@ -32,21 +32,21 @@ int main(int argc, char *argv[])
   
   sscanf(argv[1],"%d",&dimensionArreglo);
 
-  //Crear el arreglo donde se almacenaran los datos ingresados
+  //Crear el arreglo 1 donde se almacenaran los datos ingresados
   /////////////////////////
-  datosIngresados = (int *) malloc(dimensionArreglo  * sizeof(int));
-  if(datosIngresados == NULL)
+  entradas = (int *) malloc(dimensionArreglo  * sizeof(int));
+  if(entradas == NULL)
     {
       printf("\n\n\tNo hay memoria disponible.\n\n");
       exit(1);
     }
 
-  probarArregloUnidimensional(datosIngresados, dimensionArreglo);
+  probarArregloUnidimensional(entradas, dimensionArreglo);
   /////////////////////////
 
 
   //LIBERAR MEMORIA
-  free(datosIngresados);
+  free(entradas);
   
   // FINALIZACIÓN DEL PROGRAMA
   printf("\n\n\tPrograma Finalizado con ÉXITO\n\n");
