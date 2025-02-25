@@ -17,6 +17,16 @@ void convertirNumeroBases(int numero, tipoConversion *resultado)
     sprintf(resultado->hexadecimal, "%#lX", (long)numero);
 }
 
+//Funcion para ingresar los datos
+void ingresarDatos(int *arreglo1, int dimensionArreglo)
+{
+    for (int i = 0; i < dimensionArreglo; i++)
+    {
+        printf("Ingrese el %d elemento de la matriz 1: ", i + 1);
+        scanf("%d", &arreglo1[i]);
+    }
+}
+
 // Creación de arreglo1 con los datos ingresados
 void crearArreglo1(int *arreglo1, int dimensionArreglo)
 {
