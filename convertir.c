@@ -1,3 +1,4 @@
+
 /**
  *
  * @file convertir.c
@@ -14,6 +15,8 @@
 // Declaración de funciones --------------------------------------------------------------
 
 void probarArregloUnidimensional(int arreglo[], int size);
+void ingresarDatos(int *arreglo1, int dimensionArreglo);
+void crearArreglo1(int *arreglo1, int dimensionArreglo);
 // Main ---------------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -41,7 +44,9 @@ int main(int argc, char *argv[])
       exit(1);
     }
 
-  probarArregloUnidimensional(entradas, dimensionArreglo);
+  //probarArregloUnidimensional(entradas, dimensionArreglo);
+  ingresarDatos(entradas, dimensionArreglo);
+  crearArreglo1(entradas, dimensionArreglo);
   /////////////////////////
 
 
