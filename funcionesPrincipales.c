@@ -16,3 +16,12 @@ void convertirNumeroBases(int numero, tipoConversion *resultado)
     // Convertir a hexadecimal
     sprintf(resultado->hexadecimal, "%#lX", (long)numero);
 }
+
+// Creación de arreglo1 con los datos ingresados
+void crearArreglo1(int *arreglo1, int dimensionArreglo)
+{
+    for (int i = 0; i < dimensionArreglo; i++)
+    {
+        arreglo1[i] = i;
+    }
+}
