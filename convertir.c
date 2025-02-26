@@ -16,6 +16,7 @@
 
 void probarArregloUnidimensional(int arreglo[], int size);
 void ingresarDatos(int *arreglo, int dimensionArreglo);
+void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo);
 
 // Main ---------------------------------------------------------------------------------
 
@@ -57,9 +58,22 @@ int main(int argc, char *argv[])
     printf("\n\n\tNo hay memoria disponible.\n\n");
     exit(1);
   }
+
+  convertirBasesNumericas(arregloEntradas, arregloSalidas, dimensionArreglo); // Convertir los datos
+
+  // Fin de la Fase de Conversión---------------------------------------------------------
+
+  // Impresión de los datos ingresados y convertidos---------------------------------------
+  printf("\n\nArreglo Entrada\t\tArreglo Salida\n\n");
+
+  for (i = 0; i < dimensionArreglo; i++)
+  {
+    printf("[%d] %d\t\t [%d] %s, %s, %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
+  }
+
   // Antes de finalizar el programa, liberar la memoria
   free(arregloEntradas);
-
+  free(arregloSalidas);
   // FINALIZACIÓN DEL PROGRAMA
   printf("\n\n\tPrograma Finalizado con ÉXITO\n\n");
   return 0;
