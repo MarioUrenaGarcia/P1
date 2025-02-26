@@ -16,3 +16,13 @@ void convertirNumeroBases(int numero, tipoConversion *resultado)
   // Convertir a hexadecimal
   sprintf(resultado->hexadecimal, "%#lX", (long)numero);
 }
+
+// Funcion para ingresar los datos
+void ingresarDatos(int *arreglo, int dimensionArreglo)
+{
+  for (int i = 0; i < dimensionArreglo; i++)
+  {
+    printf("Ingrese el %d elemento del arreglo 1: ", i + 1);
+    scanf("%d", &arreglo[i]);
+  }
+}

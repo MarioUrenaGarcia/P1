@@ -2,8 +2,8 @@
 /**
  *
  * @file convertir.c
- * @brief 
- * @details 
+ * @brief
+ * @details
  * @date 19/febrero/2025
  * @author Mario Ureña García, Ricardo Ponce de León, Emiliano Cisneros
  *
@@ -15,44 +15,51 @@
 // Declaración de funciones --------------------------------------------------------------
 
 void probarArregloUnidimensional(int arreglo[], int size);
-void ingresarDatos(int *arreglo1, int dimensionArreglo);
-void crearArreglo1(int *arreglo1, int dimensionArreglo);
+void ingresarDatos(int *arreglo, int dimensionArreglo);
+
 // Main ---------------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
 {
   //-------------------------------------------------------------------------------------
   // Variables
-  int *entradas;
+  int *arregloEntradas;
+  tipoConversion *arregloSalidas;
   int dimensionArreglo;
-  
+  int i;
+
   // Procesos
-  if(argc == 1)
-    {
-      printf("\n\n\tIngresaste solo un argumento.\n\n");
-      exit(2);
-    }
-  
-  sscanf(argv[1],"%d",&dimensionArreglo);
+  if (argc == 1)
+  {
+    printf("\n\n\tIngresaste solo un argumento.\n\n");
+    exit(2);
+  }
 
-  //Crear el arreglo 1 donde se almacenaran los datos ingresados
-  /////////////////////////
-  entradas = (int *) malloc(dimensionArreglo  * sizeof(int));
-  if(entradas == NULL)
-    {
-      printf("\n\n\tNo hay memoria disponible.\n\n");
-      exit(1);
-    }
+  sscanf(argv[1], "%d", &dimensionArreglo);
 
-  //probarArregloUnidimensional(entradas, dimensionArreglo);
-  ingresarDatos(entradas, dimensionArreglo);
-  crearArreglo1(entradas, dimensionArreglo);
-  /////////////////////////
+  // Fase de Ingreso de Datos------------------------------------------------------------
 
+  arregloEntradas = (int *)malloc(dimensionArreglo * sizeof(int)); // Crear el arregloEntradas donde se almacenaran los datos ingresados
+  if (arregloEntradas == NULL)
+  {
+    printf("\n\n\tNo hay memoria disponible.\n\n");
+    exit(1);
+  }
 
-  //LIBERAR MEMORIA
-  free(entradas);
-  
+  ingresarDatos(arregloEntradas, dimensionArreglo); // Usuario ingresa los datos
+
+  // Fin de la Fase de Ingreso de Datos-------------------------------------------------
+  // Inicio de la Fase de Conversión------------------------------------------------------
+
+  arregloSalidas = (tipoConversion *)malloc(dimensionArreglo * sizeof(tipoConversion)); // Crear el arregloSalidas donde se almacenaran los datos convertidos
+  if (arregloSalidas == NULL)
+  {
+    printf("\n\n\tNo hay memoria disponible.\n\n");
+    exit(1);
+  }
+  // Antes de finalizar el programa, liberar la memoria
+  free(arregloEntradas);
+
   // FINALIZACIÓN DEL PROGRAMA
   printf("\n\n\tPrograma Finalizado con ÉXITO\n\n");
   return 0;
