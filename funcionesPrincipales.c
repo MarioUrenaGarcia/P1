@@ -29,6 +29,7 @@ void convertirDecHex(int numeroDecimal, tipoConversion *salida)
 
     i++;
     numeroDecimal /= 16;
+
   }
 
   // Agregar "0x" al inicio de la cadena
@@ -42,6 +43,8 @@ void convertirDecHex(int numeroDecimal, tipoConversion *salida)
   }
 
   salida->hexadecimal[j] = '\0'; // Finalizar la cadena
+
+  return;
 }
 
 /**
@@ -76,6 +79,8 @@ void convertirDecOct(int numeroDecimal, tipoConversion *salida)
   }
 
   salida->octal[j] = '\0'; // Finalizar la cadena
+
+  return:
 }
 
 /**
@@ -110,6 +115,8 @@ void convertirDecBin(int numeroDecimal, tipoConversion *salida)
   }
 
   salida->binario[j] = '\0'; // Finalizar la cadena
+
+  return;
 }
 
 /**
@@ -127,6 +134,7 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
     convertirDecOct(arregloEntradas[i], &arregloSalidas[i]); // Convertir a octal
     convertirDecBin(arregloEntradas[i], &arregloSalidas[i]); // Convertir a binario
   }
+  return;
 }
 
 /**
@@ -168,6 +176,8 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
   }
 
   fclose(fp); // Cerrar el archivo
+
+  return;
 }
 
 /**
@@ -175,7 +185,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
  * @param arreglo: Arreglo donde se almacenarán los números ingresados.
  * @param dimensionArreglo: Cantidad de números a ingresar.
  */
- 
+
 extern void ingresarDatos(int *arreglo, int dimensionArreglo)
 {
   for (int i = 0; i < dimensionArreglo; i++)
