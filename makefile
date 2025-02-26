@@ -4,8 +4,5 @@ convertir.exe: convertir.o funcionesPrincipales.o funcionesPrueba.o
 funcionesPrincipales.o: funcionesPrincipales.c defConvertir.h
 	gcc -c funcionesPrincipales.c
 
-funcionesPrueba.o: funcionesPrueba.c defConvertir.h
-	gcc -c funcionesPrueba.c
-
 convertir.o: convertir.c defConvertir.h
 	gcc -c convertir.c
