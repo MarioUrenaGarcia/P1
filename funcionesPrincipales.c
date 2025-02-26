@@ -112,8 +112,6 @@ void convertirDecBin(int numeroDecimal, tipoConversion *salida)
   return;
 }
 
-// Funcion para convertir un dato de entrada a hexadecimal, y modificar un arreglo de salida por referencia
-
 extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo)
 {
   int entrada;
@@ -132,6 +130,49 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
   return;
 }
 
+void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada)
+{
+  FILE *fp;
+  int i;
+
+  fp = fopen("convertidos.txt", "w");
+  if (fp == NULL)
+  {
+    printf("\n\n\tNo se pudo crear el archivo.\n\n");
+    exit(1);
+  }
+
+  // Determinar que conversion se solicitó
+  if (strcmp(conversionSolicitada, "binario") == 0)
+  {
+    for (i = 0; i < dimensionArreglo; i++)
+    {
+      fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario);
+    }
+  }
+  else if (strcmp(conversionSolicitada, "octal") == 0)
+  {
+    for (i = 0; i < dimensionArreglo; i++)
+    {
+      fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].octal);
+    }
+  }
+  else if (strcmp(conversionSolicitada, "hexadecimal") == 0)
+  {
+    for (i = 0; i < dimensionArreglo; i++)
+    {
+      fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].hexadecimal);
+    }
+  }
+  else
+  {
+    printf("\n\n\tEntrada número 3 inválida.\n\n");
+  }
+
+  fclose(fp);
+
+  return;
+}
 // Funcion para ingresar los datos
 extern void ingresarDatos(int *arreglo, int dimensionArreglo)
 {

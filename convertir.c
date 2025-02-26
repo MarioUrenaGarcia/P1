@@ -17,7 +17,7 @@
 void probarArregloUnidimensional(int arreglo[], int size);
 void ingresarDatos(int *arreglo, int dimensionArreglo);
 void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo);
-
+void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada);
 // Main ---------------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
   int i;
 
   // Procesos
-  if (argc == 1)
+  if (argc < 2)
   {
     printf("\n\n\tIngresaste solo un argumento.\n\n");
     exit(2);
@@ -62,6 +62,14 @@ int main(int argc, char *argv[])
   convertirBasesNumericas(arregloEntradas, arregloSalidas, dimensionArreglo); // Convertir los datos
 
   // Fin de la Fase de Conversión---------------------------------------------------------
+
+  // Según lo colocado en argv[2] (binario, octal, hexadecimal), se guardará la respectiva conversión
+  // en un archivo de texto llamado "convertidos.txt".
+
+  if (argc == 3)
+  {
+    crearArchivo(arregloEntradas, arregloSalidas, dimensionArreglo, argv[2]);
+  }
 
   // Impresión de los datos ingresados y convertidos---------------------------------------
   printf("\n\nArreglo Entrada\t\tArreglo Salida\n\n");
