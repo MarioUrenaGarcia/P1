@@ -16,7 +16,6 @@
 // Declaración de funciones --------------------------------------------------------------
 // Estas funciones se encuentran en "defConvertir.h".
 
-void probarArregloUnidimensional(int arreglo[], int size); 
 void ingresarDatos(int *arreglo, int dimensionArreglo); 
 void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo); 
 void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada);
