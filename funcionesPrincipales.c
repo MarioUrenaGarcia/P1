@@ -1,5 +1,11 @@
 #include "defConvertir.h"
 
+/**
+ * Función para convertir un número decimal a su representación en hexadecimal.
+ * @param numeroDecimal: Número entero positivo a convertir.
+ * @param salida: Puntero a la estructura donde se almacenará el resultado en hexadecimal.
+ */
+
 void convertirDecHex(int numeroDecimal, tipoConversion *salida)
 {
   char hexadecimalCruda[64]; // Cadena antes de ser volteada
@@ -43,6 +49,13 @@ void convertirDecHex(int numeroDecimal, tipoConversion *salida)
   return;
 }
 
+
+/**
+ * Función para convertir un número decimal a su representación en octal.
+ * @param numeroDecimal: Número entero positivo a convertir.
+ * @param salida: Puntero a la estructura donde se almacenará el resultado en octal.
+ */
+
 void convertirDecOct(int numeroDecimal, tipoConversion *salida)
 {
   char octalCruda[64]; // Cadena antes de ser volteada
@@ -76,6 +89,13 @@ void convertirDecOct(int numeroDecimal, tipoConversion *salida)
 
   return;
 }
+
+
+/**
+ * Función para convertir un número decimal a su representación en binario.
+ * @param numeroDecimal: Número entero positivo a convertir.
+ * @param salida: Puntero a la estructura donde se almacenará el resultado en binario.
+ */
 
 void convertirDecBin(int numeroDecimal, tipoConversion *salida)
 {
@@ -112,6 +132,13 @@ void convertirDecBin(int numeroDecimal, tipoConversion *salida)
   return;
 }
 
+/**
+ * Función para convertir una lista de números en sus representaciones en binario, octal y hexadecimal.
+ * @param arregloEntradas: Arreglo con los números a convertir.
+ * @param arregloSalidas: Arreglo de estructuras donde se almacenarán las conversiones.
+ * @param dimensionArreglo: Cantidad de números a convertir.
+ */
+
 extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo)
 {
   int entrada;
@@ -129,6 +156,15 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
 
   return;
 }
+
+
+/**
+ * Función para guardar los resultados en un archivo de texto.
+ * @param arregloEntradas: Arreglo con los números originales.
+ * @param arregloSalidas: Arreglo de estructuras con los resultados en distintas bases.
+ * @param dimensionArreglo: Cantidad de números a almacenar.
+ * @param conversionSolicitada: Tipo de conversión seleccionada (binario, octal o hexadecimal).
+ */
 
 void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada)
 {
@@ -173,6 +209,12 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
 
   return;
 }
+
+/**
+ * Función para ingresar datos en un arreglo.
+ * @param arreglo: Arreglo donde se almacenarán los números ingresados.
+ * @param dimensionArreglo: Cantidad de números a ingresar.
+ */
 // Funcion para ingresar los datos
 extern void ingresarDatos(int *arreglo, int dimensionArreglo)
 {
