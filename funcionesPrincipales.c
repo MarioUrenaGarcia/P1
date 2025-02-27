@@ -80,7 +80,7 @@ void convertirDecOct(int numeroDecimal, tipoConversion *salida)
 
   salida->octal[j] = '\0'; // Finalizar la cadena
 
-  return:
+  return;
 }
 
 /**
