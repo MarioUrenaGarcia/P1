@@ -154,48 +154,89 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
 void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada)
 {
   int i;
-  FILE *fp = fopen("convertidos.txt", "w");
-  if (fp == NULL)
-  {
-    printf("\n\n\tNo se pudo crear el archivo.\n\n");
-    exit(1);
-  }
+  FILE *fp;
 
   // Determinar qué conversión se solicitó y escribir en el archivo
+
+  // BINARIO
   if (strcmp(conversionSolicitada, "binario") == 0 || strcmp(conversionSolicitada, "bin") == 0)
   {
+    fp = fopen("convertidos.txt", "w");
+    if (fp == NULL)
+    {
+      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      exit(1);
+    }
+
     for (i = 0; i < dimensionArreglo; i++)
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario);
     }
+    printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en binario\n\n");
+
+    fclose(fp);
   }
+
+  // OCTAL
   else if (strcmp(conversionSolicitada, "octal") == 0 || strcmp(conversionSolicitada, "oct") == 0)
   {
+    fp = fopen("convertidos.txt", "w");
+    if (fp == NULL)
+    {
+      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      exit(1);
+    }
+
     for (i = 0; i < dimensionArreglo; i++)
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].octal);
     }
+    printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en octal\n\n");
+
+    fclose(fp);
   }
+
+  // HEXADECIMAL
   else if (strcmp(conversionSolicitada, "hexadecimal") == 0 || strcmp(conversionSolicitada, "hex") == 0)
   {
+    fp = fopen("convertidos.txt", "w");
+    if (fp == NULL)
+    {
+      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      exit(1);
+    }
+
     for (i = 0; i < dimensionArreglo; i++)
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].hexadecimal);
     }
+    printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en hexadecimal\n\n");
+
+    fclose(fp);
   }
+
+  // TODAS LAS BASES
   else if (strcmp(conversionSolicitada, "todos") == 0 || strcmp(conversionSolicitada, "all") == 0 || strcmp(conversionSolicitada, "todas") == 0)
   {
+    fp = fopen("convertidos.txt", "w");
+    if (fp == NULL)
+    {
+      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      exit(1);
+    }
+
     for (i = 0; i < dimensionArreglo; i++)
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
     }
+    printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en todas las bases disponibles\n\n");
+
+    fclose(fp);
   }
   else
   {
-    printf("\n\n\tEntrada número 3 inválida.\n\n");
+    printf("\n\n\tEntrada número 3 inválida. No se ha creado el archivo\n\n");
   }
-
-  fclose(fp); // Cerrar el archivo
 
   return;
 }
