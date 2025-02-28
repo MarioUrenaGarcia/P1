@@ -47,8 +47,12 @@ int main(int argc, char *argv[])
     exit(2);
   }
 
-  // Convertir el argumento (cantidad de números) de cadena a entero.
-  sscanf(argv[1], "%d", &dimensionArreglo);
+  // Convertir el argumento (cantidad de números) de cadena a entero. Verificar que sea un número.
+  if (sscanf(argv[1], "%d", &dimensionArreglo) != 1)
+  {
+    printf(RED "\n\n\tError: " RESET "El argumento ingresado no es un número.\n\n");
+    exit(3);
+  }
 
   // Validar que dimensionArreglo sea un número positivo.
   if (dimensionArreglo <= 0)
