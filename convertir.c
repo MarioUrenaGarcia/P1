@@ -83,15 +83,6 @@ int main(int argc, char *argv[])
   // CONVERSIÓN DE LOS NÚMEROS INGRESADOS A BINARIO, OCTAL Y HEXADECIMAL
   convertirBasesNumericas(arregloEntradas, arregloSalidas, dimensionArreglo);
 
-  //-------------------------------------------------------------------------------------
-  // GUARDADO DE RESULTADOS EN ARCHIVO (SI EL USUARIO LO SOLICITÓ)
-  // Si el usuario ingresó un tercer argumento (base de conversión), se guarda la conversión en un archivo.
-  if (argc == 3)
-  {
-    crearArchivo(arregloEntradas, arregloSalidas, dimensionArreglo, argv[2]);
-  }
-
-  //-------------------------------------------------------------------------------------
   // IMPRESIÓN DE LOS RESULTADOS EN PANTALLA
   imprimirDatos(arregloEntradas, arregloSalidas, dimensionArreglo);
   //-------------------------------------------------------------------------------------
@@ -101,6 +92,14 @@ int main(int argc, char *argv[])
   {
     printf("\n\n\t" YELLOW "Warning: " RESET "No se guardará el archivo con los resultados, especifique la base.\n\n");
   }
+  //-------------------------------------------------------------------------------------
+  // GUARDADO DE RESULTADOS EN ARCHIVO (SI EL USUARIO LO SOLICITÓ)
+  // Si el usuario ingresó un tercer argumento (base de conversión), se guarda la conversión en un archivo.
+  else if (argc == 3)
+  {
+    crearArchivo(arregloEntradas, arregloSalidas, dimensionArreglo, argv[2]);
+  }
+  //-------------------------------------------------------------------------------------
 
   // LIBERACIÓN DE MEMORIA DINÁMICA
   // Se libera la memoria asignada dinámicamente para evitar fugas de memoria.
