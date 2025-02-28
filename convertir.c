@@ -14,22 +14,22 @@
 #include "defConvertir.h"
 
 // Declaración de funciones --------------------------------------------------------------
-// Estas funciones se encuentran en "defConvertir.h".
+// Estas funciones se encuentran en "funcionesPrincipales.c".
 
-void ingresarDatos(int *arreglo, int dimensionArreglo); 
-void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo); 
+void ingresarDatos(int *arreglo, int dimensionArreglo);
+void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo);
 void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada);
-
+void imprimirDatos(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo);
 // Main ---------------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
 {
   //-------------------------------------------------------------------------------------
   // VARIABLES
-  int *arregloEntradas;   // Puntero al arreglo donde se almacenarán los números ingresados por el usuario.
+  int *arregloEntradas;           // Puntero al arreglo donde se almacenarán los números ingresados por el usuario.
   tipoConversion *arregloSalidas; // Puntero al arreglo donde se almacenarán los resultados de conversión.
-  int dimensionArreglo;   // Número total de valores a convertir.
-  int i;                 // Variable de control para iteraciones.
+  int dimensionArreglo;           // Número total de valores a convertir.
+  int i;                          // Variable de control para iteraciones.
 
   //-------------------------------------------------------------------------------------
   // VALIDACIÓN DE ARGUMENTOS
@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
 
   //-------------------------------------------------------------------------------------
   // RESERVA DE MEMORIA PARA LOS NÚMEROS INGRESADOS
-  arregloEntradas = (int *)malloc(dimensionArreglo * sizeof(int)); 
-  if (arregloEntradas == NULL)  // Si la memoria no se pudo asignar, mostrar error y salir.
+  arregloEntradas = (int *)malloc(dimensionArreglo * sizeof(int));
+  if (arregloEntradas == NULL) // Si la memoria no se pudo asignar, mostrar error y salir.
   {
     printf("\n\n\tError: No hay suficiente memoria disponible.\n\n");
     exit(1);
@@ -55,12 +55,12 @@ int main(int argc, char *argv[])
 
   //-------------------------------------------------------------------------------------
   // INGRESO DE DATOS POR EL USUARIO
-  ingresarDatos(arregloEntradas, dimensionArreglo); 
+  ingresarDatos(arregloEntradas, dimensionArreglo);
 
   //-------------------------------------------------------------------------------------
   // RESERVA DE MEMORIA PARA LOS RESULTADOS DE CONVERSIÓN
-  arregloSalidas = (tipoConversion *)malloc(dimensionArreglo * sizeof(tipoConversion)); 
-  if (arregloSalidas == NULL)  // Si la memoria no se pudo asignar, mostrar error y salir.
+  arregloSalidas = (tipoConversion *)malloc(dimensionArreglo * sizeof(tipoConversion));
+  if (arregloSalidas == NULL) // Si la memoria no se pudo asignar, mostrar error y salir.
   {
     printf("\n\n\tError: No hay suficiente memoria disponible.\n\n");
     free(arregloEntradas); // Liberar la memoria previamente asignada antes de salir.
@@ -81,14 +81,7 @@ int main(int argc, char *argv[])
 
   //-------------------------------------------------------------------------------------
   // IMPRESIÓN DE LOS RESULTADOS EN PANTALLA
-  printf("\n\nArreglo Entrada\t\tArreglo Salida\n\n");
-
-  for (i = 0; i < dimensionArreglo; i++)
-  {
-    // Muestra el índice del número ingresado y sus conversiones en las distintas bases.
-    printf("[%d] %d\t\t [%d] %s, %s, %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
-  }
-
+  imprimirDatos(arregloEntradas, arregloSalidas, dimensionArreglo);
   //-------------------------------------------------------------------------------------
   // LIBERACIÓN DE MEMORIA DINÁMICA
   // Se libera la memoria asignada dinámicamente para evitar fugas de memoria.
@@ -100,4 +93,3 @@ int main(int argc, char *argv[])
   printf("\n\n\tPrograma Finalizado con ÉXITO\n\n");
   return 0;
 }
-

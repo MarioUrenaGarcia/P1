@@ -1,3 +1,10 @@
+/**
+ * @file funcionesPrincipales.c
+ * @brief Funciones principales para el programa de conversión de números decimales a binario, octal y hexadecimal.
+ * @details Este archivo contiene las funciones necesarias para realizar la conversión de números decimales a binario, octal y hexadecimal.
+ * @date 27/febrero/2025
+ */
+
 #include "defConvertir.h"
 
 /**
@@ -29,7 +36,6 @@ void convertirDecHex(int numeroDecimal, tipoConversion *salida)
 
     i++;
     numeroDecimal /= 16;
-
   }
 
   // Agregar "0x" al inicio de la cadena
@@ -147,6 +153,7 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
 
 void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo, char *conversionSolicitada)
 {
+  int i;
   FILE *fp = fopen("convertidos.txt", "w");
   if (fp == NULL)
   {
@@ -155,20 +162,33 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
   }
 
   // Determinar qué conversión se solicitó y escribir en el archivo
-  if (strcmp(conversionSolicitada, "binario") == 0)
+  if (strcmp(conversionSolicitada, "binario") == 0 || strcmp(conversionSolicitada, "bin") == 0)
   {
-    for (int i = 0; i < dimensionArreglo; i++)
+    for (i = 0; i < dimensionArreglo; i++)
+    {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario);
+    }
   }
-  else if (strcmp(conversionSolicitada, "octal") == 0)
+  else if (strcmp(conversionSolicitada, "octal") == 0 || strcmp(conversionSolicitada, "oct") == 0)
   {
-    for (int i = 0; i < dimensionArreglo; i++)
+    for (i = 0; i < dimensionArreglo; i++)
+    {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].octal);
+    }
   }
-  else if (strcmp(conversionSolicitada, "hexadecimal") == 0)
+  else if (strcmp(conversionSolicitada, "hexadecimal") == 0 || strcmp(conversionSolicitada, "hex") == 0)
   {
-    for (int i = 0; i < dimensionArreglo; i++)
+    for (i = 0; i < dimensionArreglo; i++)
+    {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].hexadecimal);
+    }
+  }
+  else if (strcmp(conversionSolicitada, "todos") == 0 || strcmp(conversionSolicitada, "all") == 0 || strcmp(conversionSolicitada, "todas") == 0)
+  {
+    for (i = 0; i < dimensionArreglo; i++)
+    {
+      fprintf(fp, "[%d] %d\t\t[%d] %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
+    }
   }
   else
   {
@@ -193,4 +213,24 @@ extern void ingresarDatos(int *arreglo, int dimensionArreglo)
     printf("Ingrese el %d elemento del arreglo 1: ", i + 1);
     scanf("%d", &arreglo[i]);
   }
+}
+
+/**
+ * @brief Imprime los datos ingresados y sus conversiones en binario, octal y hexadecimal.
+ * @param arreglo: Arreglo con los números originales.
+ * @param arregloSalidas: Arreglo de estructuras con los resultados en distintas bases.
+ * @param dimensionArreglo: Cantidad de números a imprimir.
+ */
+extern void imprimirDatos(int *arregloEntradas, tipoConversion *arregloSalidas, int dimensionArreglo)
+{
+
+  printf("\n\nArreglo Entrada\t\tArreglo Salida\n\n");
+
+  for (int i = 0; i < dimensionArreglo; i++)
+  {
+    // Muestra el índice del número ingresado y sus conversiones en las distintas bases.
+    printf("[%d] %d\t\t[%d] %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
+  }
+
+  return;
 }
