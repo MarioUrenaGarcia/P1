@@ -266,8 +266,17 @@ extern void ingresarDatos(int *arreglo, int dimensionArreglo)
 {
   for (int i = 0; i < dimensionArreglo; i++)
   {
-    printf("Ingrese el %d elemento del arreglo 1: ", i + 1);
+    // Solicitar al usuario que ingrese un número
+    printf("Ingrese el número %d: ", i + 1);
     scanf("%d", &arreglo[i]);
+
+    // Validar que el número ingresado sea positivo
+    while (arreglo[i] < 0)
+    {
+      printf(RED "\n\n\tError: " RESET "El número debe ser positivo.\n");
+      printf("Ingrese un valor válido en número %d: ", i + 1);
+      scanf("%d", &arreglo[i]);
+    }
   }
 }
 
