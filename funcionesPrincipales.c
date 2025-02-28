@@ -2,6 +2,7 @@
  * @file funcionesPrincipales.c
  * @brief Funciones principales para el programa de conversión de números decimales a binario, octal y hexadecimal.
  * @details Este archivo contiene las funciones necesarias para realizar la conversión de números decimales a binario, octal y hexadecimal.
+ * @autor Mario Ureña, Emiliano Cisneros y Ricardo Ponce de León
  * @date 27/febrero/2025
  */
 
@@ -9,6 +10,7 @@
 
 /**
  * @brief Convierte un número decimal a su representación en hexadecimal.
+ * @author Mario Ureña
  * @param numeroDecimal: Número entero positivo a convertir.
  * @param salida: Puntero a la estructura donde se almacenará el resultado en hexadecimal.
  */
@@ -55,6 +57,7 @@ void convertirDecHex(int numeroDecimal, tipoConversion *salida)
 
 /**
  * @brief Convierte un número decimal a su representación en octal.
+ * @author Mario Ureña
  * @param numeroDecimal: Número entero positivo a convertir.
  * @param salida: Puntero a la estructura donde se almacenará el resultado en octal.
  */
@@ -91,6 +94,7 @@ void convertirDecOct(int numeroDecimal, tipoConversion *salida)
 
 /**
  * @brief Convierte un número decimal a su representación en binario.
+ * @author Mario Ureña
  * @param numeroDecimal: Número entero positivo a convertir.
  * @param salida: Puntero a la estructura donde se almacenará el resultado en binario.
  */
@@ -127,6 +131,7 @@ void convertirDecBin(int numeroDecimal, tipoConversion *salida)
 
 /**
  * @brief Convierte una lista de números en sus representaciones en binario, octal y hexadecimal.
+ * @author Mario Ureña
  * @param arregloEntradas: Arreglo con los números a convertir.
  * @param arregloSalidas: Arreglo de estructuras donde se almacenarán las conversiones.
  * @param dimensionArreglo: Cantidad de números a convertir.
@@ -145,6 +150,7 @@ extern void convertirBasesNumericas(int *arregloEntradas, tipoConversion *arregl
 
 /**
  * @brief Guarda los resultados en un archivo de texto llamado "convertidos.txt".
+ * @author Mario Ureña, Emiliano Cisneros y Ricardo Ponce de León
  * @param arregloEntradas: Arreglo con los números originales.
  * @param arregloSalidas: Arreglo de estructuras con los resultados en distintas bases.
  * @param dimensionArreglo: Cantidad de números a almacenar.
@@ -251,6 +257,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
 
 /**
  * @brief Permite al usuario ingresar datos en un arreglo.
+ * @author Emiliano Cisneros
  * @param arreglo: Arreglo donde se almacenarán los números ingresados.
  * @param dimensionArreglo: Cantidad de números a ingresar.
  */
@@ -266,6 +273,7 @@ extern void ingresarDatos(int *arreglo, int dimensionArreglo)
 
 /**
  * @brief Imprime los datos ingresados y sus conversiones en binario, octal y hexadecimal.
+ * @author Emiliano Cisneros y Ricardo Ponce de León
  * @param arreglo: Arreglo con los números originales.
  * @param arregloSalidas: Arreglo de estructuras con los resultados en distintas bases.
  * @param dimensionArreglo: Cantidad de números a imprimir.
