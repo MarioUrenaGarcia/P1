@@ -43,13 +43,19 @@ int main(int argc, char *argv[])
   if (argc < 2)
   {
     printf(RED "\n\n\tError: " RESET "No ingresaste suficientes argumentos.\n\n");
-    printf("\tUso: %s <cantidad de números> [opcional: binario, octal, hexadecimal]\n\n\n", argv[0]);
+    printf("\tIntroducir: %s <cantidad de números> [opcional: binario, octal, hexadecimal]\n\n\n", argv[0]);
     exit(2);
   }
 
   // Convertir el argumento (cantidad de números) de cadena a entero.
   sscanf(argv[1], "%d", &dimensionArreglo);
 
+  // Validar que dimensionArreglo sea un número positivo.
+  if (dimensionArreglo <= 0)
+  {
+    printf(RED "\n\n\tError: " RESET "La cantidad de números debe ser un entero positivo.\n\n");
+    exit(3);
+  }
   //-------------------------------------------------------------------------------------
   // RESERVA DE MEMORIA PARA LOS NÚMEROS INGRESADOS
   arregloEntradas = (int *)malloc(dimensionArreglo * sizeof(int));
