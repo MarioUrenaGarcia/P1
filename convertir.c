@@ -32,12 +32,18 @@ int main(int argc, char *argv[])
   int i;                          // Variable de control para iteraciones.
 
   //-------------------------------------------------------------------------------------
+  // MENSAJE DE BIENVENIDA
+  system("clear");
+  printf("\n\n\t" GREEN "Programa de Conversión de Números Decimales a Binario, Octal y Hexadecimal\n" RESET);
+  printf(YELLOW "\t     Mario Ureña García" RESET ", " CYAN "Ricardo Ponce de León" RESET ", "
+                "Emiliano Cisneros\n\n" RESET);
+
   // VALIDACIÓN DE ARGUMENTOS
   // Se verifica que el usuario haya ingresado al menos el tamaño del arreglo en la línea de comandos.
   if (argc < 2)
   {
     printf(RED "\n\n\tError: " RESET "No ingresaste suficientes argumentos.\n\n");
-    printf("\tUso: %s <cantidad de números> [opcional: binario, octal, hexadecimal]\n\n", argv[0]);
+    printf("\tUso: %s <cantidad de números> [opcional: binario, octal, hexadecimal]\n\n\n", argv[0]);
     exit(2);
   }
 

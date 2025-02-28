@@ -172,7 +172,9 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario);
     }
-    printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en binario\n\n");
+
+    printf(GREEN "\n\n\t\tArchivo Guardado\n\n" RESET);
+    printf("Los resultados de esta operación fueron anexados en el archivo convertidos.txt en binario\n\n");
 
     fclose(fp);
   }
@@ -191,6 +193,8 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].octal);
     }
+
+    printf(GREEN "\n\n\t\tArchivo Guardado\n\n" RESET);
     printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en octal\n\n");
 
     fclose(fp);
@@ -210,6 +214,8 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s\n", i, arregloEntradas[i], i, arregloSalidas[i].hexadecimal);
     }
+
+    printf(GREEN "\n\n\t\tArchivo Guardado\n\n" RESET);
     printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en hexadecimal\n\n");
 
     fclose(fp);
@@ -229,6 +235,8 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     {
       fprintf(fp, "[%d] %d\t\t[%d] %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
     }
+
+    printf(GREEN "\n\n\t\tArchivo Guardado\n\n" RESET);
     printf("\n\n\tLos resultados de esta operación fueron anexados en el archivo convertidos.txt en todas las bases disponibles\n\n");
 
     fclose(fp);
