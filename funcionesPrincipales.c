@@ -164,7 +164,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     fp = fopen("convertidos.txt", "w");
     if (fp == NULL)
     {
-      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      printf(RED "\n\n\tNo se pudo crear el archivo.\n\n" RESET);
       exit(1);
     }
 
@@ -183,7 +183,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     fp = fopen("convertidos.txt", "w");
     if (fp == NULL)
     {
-      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      printf(RED "\n\n\tNo se pudo crear el archivo.\n\n" RESET);
       exit(1);
     }
 
@@ -202,7 +202,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     fp = fopen("convertidos.txt", "w");
     if (fp == NULL)
     {
-      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      printf(RED "\n\n\tNo se pudo crear el archivo.\n\n" RESET);
       exit(1);
     }
 
@@ -221,7 +221,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
     fp = fopen("convertidos.txt", "w");
     if (fp == NULL)
     {
-      printf("\n\n\tNo se pudo crear el archivo.\n\n");
+      printf(RED "\n\n\tNo se pudo crear el archivo.\n\n" RESET);
       exit(1);
     }
 
@@ -235,7 +235,7 @@ void crearArchivo(int *arregloEntradas, tipoConversion *arregloSalidas, int dime
   }
   else
   {
-    printf("\n\n\tEntrada número 3 inválida. No se ha creado el archivo\n\n");
+    printf("\n\n\tEntrada número 3 " RED "inválida" RESET ". No se ha creado el archivo\n\n");
   }
 
   return;
@@ -270,7 +270,7 @@ extern void imprimirDatos(int *arregloEntradas, tipoConversion *arregloSalidas, 
   for (int i = 0; i < dimensionArreglo; i++)
   {
     // Muestra el índice del número ingresado y sus conversiones en las distintas bases.
-    printf("[%d] %d\t\t[%d] %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
+    printf(YELLOW "[%d]" RESET " %d\t\t" YELLOW "[%d]" RESET " %s,\t\t%s,\t\t%s\n", i, arregloEntradas[i], i, arregloSalidas[i].binario, arregloSalidas[i].octal, arregloSalidas[i].hexadecimal);
   }
 
   return;

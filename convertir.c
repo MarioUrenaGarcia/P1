@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
   // Se verifica que el usuario haya ingresado al menos el tamaño del arreglo en la línea de comandos.
   if (argc < 2)
   {
-    printf("\n\n\tError: No ingresaste suficientes argumentos.\n");
+    printf(RED "\n\n\tError: " RESET "No ingresaste suficientes argumentos.\n\n");
     printf("\tUso: %s <cantidad de números> [opcional: binario, octal, hexadecimal]\n\n", argv[0]);
     exit(2);
   }
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
   arregloEntradas = (int *)malloc(dimensionArreglo * sizeof(int));
   if (arregloEntradas == NULL) // Si la memoria no se pudo asignar, mostrar error y salir.
   {
-    printf("\n\n\tError: No hay suficiente memoria disponible.\n\n");
+    printf(RED "\n\n\tError: " RESET "No hay suficiente memoria disponible.\n\n");
     exit(1);
   }
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
   arregloSalidas = (tipoConversion *)malloc(dimensionArreglo * sizeof(tipoConversion));
   if (arregloSalidas == NULL) // Si la memoria no se pudo asignar, mostrar error y salir.
   {
-    printf("\n\n\tError: No hay suficiente memoria disponible.\n\n");
+    printf(RED "\n\n\tError: " RESET "No hay suficiente memoria disponible.\n\n");
     free(arregloEntradas); // Liberar la memoria previamente asignada antes de salir.
     exit(1);
   }
@@ -90,6 +90,6 @@ int main(int argc, char *argv[])
 
   //-------------------------------------------------------------------------------------
   // FINALIZACIÓN DEL PROGRAMA
-  printf("\n\n\tPrograma Finalizado con ÉXITO\n\n");
+  printf("\n\n\tPrograma Finalizado con " GREEN "ÉXITO\n\n" RESET);
   return 0;
 }
