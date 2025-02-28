@@ -95,6 +95,13 @@ int main(int argc, char *argv[])
   // IMPRESIÓN DE LOS RESULTADOS EN PANTALLA
   imprimirDatos(arregloEntradas, arregloSalidas, dimensionArreglo);
   //-------------------------------------------------------------------------------------
+
+  // Dar Warning, si el usuario solo ingresó dos argumentos. No se guardará el archivo.
+  if (argc == 2)
+  {
+    printf("\n\n\t" YELLOW "Warning: " RESET "No se guardará el archivo con los resultados, especifique la base.\n\n");
+  }
+
   // LIBERACIÓN DE MEMORIA DINÁMICA
   // Se libera la memoria asignada dinámicamente para evitar fugas de memoria.
   free(arregloEntradas);
